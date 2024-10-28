@@ -1,0 +1,30 @@
+{
+  "name": "triple-internet-solutions/fakerphp-image-provider",
+  "description": "An image provider for FakerPHP using placehold.co with Laravel support",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mordi Sacks"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-curl": "*",
+    "fakerphp/faker": "1.*",
+    "illuminate/support": "^10.0|^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "TripleInternetSolutions\\FakerphpImageProvider\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "TripleInternetSolutions\\FakerphpImageProvider\\FakerPhpImageProviderServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
