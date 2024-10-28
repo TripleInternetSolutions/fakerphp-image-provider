@@ -59,9 +59,9 @@ class Image extends Base
         $bg = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
 
         // Calculate straight from rbg
-        $r = hexdec($bg[1] . $bg[2]);
-        $g = hexdec($bg[3] . $bg[4]);
-        $b = hexdec($bg[5] . $bg[6]);
+        $r = hexdec($bg[0] . $bg[1]);
+        $g = hexdec($bg[2] . $bg[3]);
+        $b = hexdec($bg[4] . $bg[5]);
 
         $light = (($r * 299 + $g * 587 + $b * 114) / 1000 > 130);
 
