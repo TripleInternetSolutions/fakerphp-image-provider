@@ -11,13 +11,13 @@ class Image extends Base
     /**
      * @var string
      */
-    public const string BASE_URL = 'https://placehold.co';
+    public const BASE_URL = 'https://placehold.co';
 
-    public const string FORMAT_JPG = 'jpg';
-    public const string FORMAT_JPEG = 'jpeg';
-    public const string FORMAT_PNG = 'png';
-    public const string FORMAT_WEBP = 'webp';
-    public const string FORMAT_GIF = 'gif';
+    public const FORMAT_JPG = 'jpg';
+    public const FORMAT_JPEG = 'jpeg';
+    public const FORMAT_PNG = 'png';
+    public const FORMAT_WEBP = 'webp';
+    public const FORMAT_GIF = 'gif';
 
 
     /**
@@ -58,6 +58,15 @@ class Image extends Base
 
         $bg = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
 
+        // Calculate straight from rbg
+        $r = hexdec($bg[1] . $bg[2]);
+        $g = hexdec($bg[3] . $bg[4]);
+        $b = hexdec($bg[5] . $bg[6]);
+
+        $light = (($r * 299 + $g * 587 + $b * 114) / 1000 > 130);
+
+        $fg = $light ? '000000' : 'FFFFFF';
+
         // TODO fg
 
         $params = [];
@@ -69,10 +78,10 @@ class Image extends Base
         // TODO font
 
         return sprintf(
-            '%s/%dx%d/%s/%s?%s',
+            '%s/%dx%d/%s/%s/%s?%s',
             self::BASE_URL,
             $width, $height,
-            $bg,
+            $bg,$fg,
             $format,
             http_build_query($params),
         );
