@@ -21,7 +21,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "TripleInternetSolutions\\FakerphpImageProvider\\FakerPhpImageProviderServiceProvider"
+        "TripleInternetSolutions\\FakerPhpImageProvider\\FakerPhpImageProviderServiceProvider"
       ]
     }
   },
